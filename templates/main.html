@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>PB Burn Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        function refrescar(tiempo) {
+            setTimeout("location.reload(true);", tiempo);
+        }
+        refrescar(2000);
+
+
+    </script>
+
+    <div style="margin-left: 10%; margin-right: 10%">
+        <H1 class="align-text-top text-center"><strong> Rank burn </strong></H1>
+
+        <table class="table table-striped table-responsive">
+            <tr class="col-md-5 ">
+                <th scope="col" class="text-center">Top</th>
+                <th scope="col" class="text-center">Nombre</th>
+                <th scope="col" class="text-center">Stamina</th>
+                <th scope="col" class="text-center">rep/min</th>
+                <th scope="col" class="text-center">sum/rep</th>
+                <th scope="col" class="text-center">rep/total</th>
+            </tr>
+            {% for elemento in fastPlayers %}
+            <tr>
+                <td class="text-center"> {{ fastPlayers.index(elemento) + 1}}. </td>
+                <td> {{ elemento.member_name }} - {{ elemento.member_id }}</td>
+                <td class="text-center"> {{ elemento.member_stamina }} </td>
+                <td class="text-center"> {{ elemento.Acumulated_Rep }} </td>
+                <td class="text-center"> {{ elemento.Acumulated_Rep }} </td>
+                <td class="text-center"> {{ elemento.member_reputation }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+
+
+        <H1 class="align-text-top text-center"> Slow Players </H1>
+
+        <table class="table table-striped table-responsive">
+            <tr class="col-md-5 ">
+                <th scope="col" class="text-center">Top</th>
+                <th scope="col" class="text-center">Nombre</th>
+                <th scope="col" class="text-center">rep/min</th>
+                <th scope="col" class="text-center">sum/rep</th>
+            </tr>
+            {% for moreSlow in slowPlayers %}
+            <tr>
+                <td class="text-center"> {{ slowPlayers.index(moreSlow) + 1}}. </td>
+                <td> {{ moreSlow.member_name }} - {{ moreSlow.member_id }}</td>
+                <td class="text-center"> {{ moreSlow.Acumulated_Rep }} </td>
+                <td class="text-center"> {{ moreSlow.Acumulated_Rep }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+
+</html>
