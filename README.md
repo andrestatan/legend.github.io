@@ -1,1 +1,1 @@
-# legend.github.io
+# templates/main.html
